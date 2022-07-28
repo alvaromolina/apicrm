@@ -47,7 +47,101 @@ paths:
                     type: integer
                     format: int64
                     example: 4
-  
+
+  /client/{client_id}:
+    get:
+      summary: Returns a clieny by ID.
+      parameters:
+        - name: client_id
+          in: path
+          required: true
+          description: Client Id
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: client id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  client_id:
+                    type: integer
+                    format: int64
+                    example: 4
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email:
+                    type: string
+
+  /subscription:
+    post:
+      summary: Creates a subscription.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: integer
+                  format: int64
+                plan_id:
+                  type: string
+                iccid:
+                  type: string
+                msisdn:
+                  type: string
+      responses:
+        '200':
+          description: subscription id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  subscription_id:
+                    type: integer
+                    format: int64
+                    example: 4
+
+
+  /change_msisdn:
+    post:
+      summary: Change the msisdn of the client.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: integer
+                  format: int64
+                iccid:
+                  type: string
+                msisdn:
+                  type: string
+      responses:
+        '200':
+          description: transaction_id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transaction_id:
+                    type: integer
+                    format: int64
+                    example: 4
+
 externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"
