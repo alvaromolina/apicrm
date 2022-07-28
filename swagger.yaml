@@ -1,101 +1,43 @@
 ---
 swagger: "2.0"
 info:
-  description: "This is a sample server Petstore server.  You can find out more about\
-    \ Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).\
-    \  For this sample, you can use the api key `special-key` to test the authorization\
-    \ filters."
+  description: "Api CRM for X project "
   version: "1.0.5"
-  title: "Swagger Petstore"
+  title: "Swagger API CRM"
   termsOfService: "http://swagger.io/terms/"
   contact:
     email: "apiteam@swagger.io"
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "petstore.swagger.io"
-basePath: "/v2"
-tags:
-- name: "pet"
-  description: "Everything about your Pets"
-  externalDocs:
-    description: "Find out more"
-    url: "http://swagger.io"
-- name: "store"
-  description: "Access to Petstore orders"
-- name: "user"
-  description: "Operations about user"
-  externalDocs:
-    description: "Find out more about our store"
-    url: "http://swagger.io"
+host: "otlkm.app.n8n.cloud"
+basePath: "/webhook"
+
 schemes:
 - "https"
-- "http"
 paths:
-  /pet/{petId}/uploadImage:
+
+  /client:
     post:
       tags:
-      - "pet"
-      summary: "uploads an image"
+      - "client"
+      summary: "Add a new client to the CRM"
       description: ""
-      operationId: "uploadFile"
-      consumes:
-      - "multipart/form-data"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "petId"
-        in: "path"
-        description: "ID of pet to update"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "additionalMetadata"
-        in: "formData"
-        description: "Additional data to pass to server"
-        required: false
-        type: "string"
-      - name: "file"
-        in: "formData"
-        description: "file to upload"
-        required: false
-        type: "file"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-      security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
-  /pet:
-    post:
-      tags:
-      - "pet"
-      summary: "Add a new pet to the store"
-      description: ""
-      operationId: "addPet"
       consumes:
       - "application/json"
-      - "application/xml"
       produces:
       - "application/json"
-      - "application/xml"
       parameters:
       - in: "body"
         name: "body"
-        description: "Pet object that needs to be added to the store"
+        description: "Client"
         required: true
         schema:
-          $ref: "#/definitions/Pet"
+          $ref: "#/definitions/Client"
       responses:
         405:
           description: "Invalid input"
-      security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
+          
     put:
       tags:
       - "pet"
@@ -614,7 +556,7 @@ definitions:
         type: "string"
     xml:
       name: "Category"
-  Pet:
+  Client:
     type: "object"
     required:
     - "name"
