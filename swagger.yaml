@@ -142,6 +142,31 @@ paths:
                     format: int64
                     example: 4
 
+  /activate_subscription:
+    post:
+      summary: Activate the susbcription of the client
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: integer
+                  format: int64
+      responses:
+        '200':
+          description: transaction_id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transaction_id:
+                    type: integer
+                    format: int64
+                    example: 4
 externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"
