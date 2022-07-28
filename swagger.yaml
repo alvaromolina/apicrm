@@ -48,7 +48,7 @@ paths:
                     format: int64
                     example: 4
 
-  /client/{client_id}:
+  /52250129-a257-4f45-87e1-69762cab7fdb/client/{client_id}:
     get:
       summary: Returns a clieny by ID.
       parameters:
