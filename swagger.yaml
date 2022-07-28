@@ -35,11 +35,11 @@ paths:
                   type: string
                 shipping_address:
                   type: object
+                  properties:
                     address:
                       type: string
                     postal_code:
                       type: string
-
       responses:
         '200':
           description: user id
