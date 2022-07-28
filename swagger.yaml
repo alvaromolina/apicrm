@@ -5,6 +5,7 @@ info:
   version: 0.1.0
 servers:
   - url: https://otlkm.app.n8n.cloud/webhook
+  - url: https://otlkm.app.n8n.cloud/webhook-test
 
 
 schemes:
