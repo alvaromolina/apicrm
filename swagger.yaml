@@ -37,13 +37,13 @@ paths:
                       type: string
       responses:
         '200':
-          description: user id
+          description: client id
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  id:
+                  client_id:
                     type: integer
                     format: int64
                     example: 4
